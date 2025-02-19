@@ -14,6 +14,7 @@
 	import EllipsisVertical from '../icons/EllipsisVertical.svelte';
 	import Artifacts from './Artifacts.svelte';
 	import { min } from '@floating-ui/utils';
+	import ResponsePanel from './ResponsePanel.svelte';
 
 	export let history;
 	export let models = [];
@@ -273,6 +274,7 @@
 								bind:chatFiles
 								bind:params
 							/>
+							<ResponsePanel {history} />
 						{/if}
 					</div>
 				</div>

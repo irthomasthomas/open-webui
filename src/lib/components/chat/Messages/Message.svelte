@@ -11,6 +11,7 @@
 	import MultiResponseMessages from './MultiResponseMessages.svelte';
 	import ResponseMessage from './ResponseMessage.svelte';
 	import UserMessage from './UserMessage.svelte';
+	import ResponsePanel from '../ResponsePanel.svelte';
 
 	export let chatId;
 	export let idx = 0;
@@ -84,6 +85,7 @@
 				{addMessages}
 				{readOnly}
 			/>
+			<ResponsePanel response={history.messages[messageId].response} />
 		{:else}
 			<MultiResponseMessages
 				bind:history

@@ -45,6 +45,7 @@
 	import CodeExecutions from './CodeExecutions.svelte';
 	import ContentRenderer from './ContentRenderer.svelte';
 	import { KokoroWorker } from '$lib/workers/KokoroWorker';
+	import ResponsePanel from '../ResponsePanel.svelte';
 
 	interface MessageType {
 		id: string;
@@ -95,6 +96,14 @@
 			usage?: unknown;
 		};
 		annotation?: { type: string; rating: number };
+		response?: {
+			tags: string[];
+			confidence: number;
+			analysis: string;
+			dissent: string;
+			needs_iteration: boolean;
+			refinement_areas: string;
+		};
 	}
 
 	export let chatId = '';
@@ -1332,6 +1341,10 @@
 		</div>
 	</div>
 {/key}
+
+{#if message.response}
+	<ResponsePanel {response} />
+{/if}
 
 <style>
 	.buttons::-webkit-scrollbar {
