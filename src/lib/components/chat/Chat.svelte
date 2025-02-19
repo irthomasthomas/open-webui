@@ -85,6 +85,7 @@
 	import Placeholder from './Placeholder.svelte';
 	import NotificationToast from '../NotificationToast.svelte';
 	import Spinner from '../common/Spinner.svelte';
+	import ResponsePanel from './ResponsePanel.svelte';
 
 	export let chatIdProp = '';
 
@@ -2090,6 +2091,7 @@
 				{stopResponse}
 				{showMessage}
 				{eventTarget}
+				{ResponsePanel}
 			/>
 		</PaneGroup>
 	{:else if loading}
